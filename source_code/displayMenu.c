@@ -13,7 +13,10 @@ void displayValue(listEntry listItem)
 void displayPair(listEntry listItem)
 {
     displayKey(listItem);
-    //TraverseList((listItem.keyPair.values_list),&displayValue);
+    if(!ListEmpty(listItem.keyPair.values_list))
+    {
+        TraverseList((listItem.keyPair.values_list),&displayValue);
+    }
 }
 void displayKeyHeader(listEntry list)
 {
