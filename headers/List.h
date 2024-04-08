@@ -1,7 +1,7 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
 
-typedef int ListEntry;
+typedef Data ListEntry;
 
 typedef struct listnode
 {
