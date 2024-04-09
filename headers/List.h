@@ -1,11 +1,13 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
 
+#include "../headers/global.h"
+
 typedef Data ListEntry;
 
 typedef struct listnode
 {
-    ListEntry entry;
+    ListEntry data;
     struct listnode *next;
 }ListNode;
 

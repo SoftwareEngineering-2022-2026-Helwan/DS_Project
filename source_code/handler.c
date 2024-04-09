@@ -1,9 +1,21 @@
 
 
-#include "headers/LinkedList.h"
+#include "../headers/List.h"
 
-void AddHandler( List *list); 
-void RemoveHandler( List *list); 
-void ModificationHandler( List *list);
-void DisplayHandler( List *list);
+void AddHandler( List *list)
+{
+
+}
+void RemoveHandler( List *list)
+{
+
+}
+void ModificationHandler( List *list)
+{
+
+}
+void DisplayHandler( List *list)
+{
+    
+}
 

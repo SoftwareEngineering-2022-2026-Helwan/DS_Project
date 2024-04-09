@@ -1,4 +1,4 @@
-#include "List.h"
+#include "../headers/List.h"
 #include <stdlib.h>
 
 
@@ -41,7 +41,7 @@ void InsertList(List *pl,int pos,ListEntry e)
     int i;
     ListNode *q;
     ListNode *pn = (ListNode *)malloc(sizeof(ListNode));
-    pn->entry = e;
+    pn->data = e;
     pn->next = NULL;
 
     if(pos == 0)
@@ -67,7 +67,7 @@ void DeleteList(List *pl,int pos,ListEntry *pe)
     ListNode *q,*tmp;
     if(pos == 0)
     {
-        *pe = pl->head->entry;
+        *pe = pl->head->data;
         q = pl->head;
         pl->head = q->next;
         free(q);
@@ -77,7 +77,7 @@ void DeleteList(List *pl,int pos,ListEntry *pe)
         for(q = pl->head,i  = 0;i < pos-1;i++)
             q = q->next;
         tmp = q->next;
-        *pe = tmp->entry;
+        *pe = tmp->data;
         q->next = tmp->next;
         free(tmp);
     }
@@ -90,7 +90,7 @@ void RetrieveList(List *pl,int pos,ListEntry *pe)
     ListNode *q;
     for(q = pl->head,i = 0;i < pos;i++)
         q = q->next;
-    *pe = q->entry;
+    *pe = q->data;
 }
 
 void ReplaceList(List *pl,int pos,ListEntry e)
@@ -99,7 +99,7 @@ void ReplaceList(List *pl,int pos,ListEntry e)
     ListNode *q;
     for(q = pl->head,i = 0;i < pos;i++)
         q = q->next;
-    q->entry = e;
+    q->data = e;
 }
 
 void TraverseList(List *pl,void(*pf)(ListEntry))
@@ -107,7 +107,7 @@ void TraverseList(List *pl,void(*pf)(ListEntry))
     ListNode *q = pl->head;
     while(q)
     {
-        (*pf)(q->entry);
+        (*pf)(q->data);
         q = q->next;
 
     }
