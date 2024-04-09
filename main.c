@@ -6,11 +6,9 @@
 
 #include "headers/global.h"
 #include "headers/List.h"
-//#include "headers/LinkedList.h"
 // #include "headers/sort.h"
 // #include "headers/pairUtils.h"
 // #include "headers/operations.h"
-//#include "headers/handler.h"
 #include "source_code/displayMenu.c"
 #include "source_code/validation.c"
 #include "source_code/handler.c"
