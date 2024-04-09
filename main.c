@@ -11,10 +11,10 @@
 // #include "headers/pairUtils.h"
 // #include "headers/operations.h"
 //#include "headers/handler.h"
-#include "source_code/handler.c"
-#include "source_code/menu.c"
 #include "source_code/displayMenu.c"
 #include "source_code/validation.c"
+#include "source_code/handler.c"
+#include "source_code/menu.c"
 
 
 void debug(int task);
@@ -87,6 +87,7 @@ void debug(int task)
 
 
 // |-------------( Tasks )-------------|
+
 void task2Test()
 {
     List keyList , valueList, valueList2;
@@ -118,30 +119,19 @@ void task2Test()
 
     value3.value = 20;
     value4.value = 40;
-
+    Data value5;
+    value5.value = 50;
     InsertList(pairData2.keyPair.values_list,0, value3);
         
     InsertList(pairData2.keyPair.values_list,0, value4);
+
+    ReplaceList(pairData2.keyPair.values_list,0,value5);
         
-    InsertList(&keyList, 0, pairData2);
+    InsertList(&keyList, 1, pairData2);
 
+    //TraverseList(&keyList,&displayPair);
 
-
-    Data holder;
-
-    RetrieveList(&keyList, 1, &holder);
-
-    // displayKey(holder);
-
-    // TraverseList(holder.keyPair.values_list,&displayValue);
-    displayPair(holder);
-
-    RetrieveList(&keyList, 0, &holder);
-
-    // displayKey(holder);
-
-    // TraverseList(holder.keyPair.values_list,&displayValue);
-
-    displayPair(holder);
+    DisplayHandler(&keyList);
+    
     
 }
