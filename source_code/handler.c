@@ -18,7 +18,7 @@ void DisplayHandler( List *keyList)
     
     if(ListEmpty(keyList))
     {
-        printf("[!] key List Empty !!");
+        printf("\n[!] key List Empty !!\n");
         return;
     }
 
@@ -27,7 +27,7 @@ void DisplayHandler( List *keyList)
     do
     {
 
-        printf("\n|-------------( Key Menu )-------------|\n");
+        
         printf("\n[*] Select Key To Display: \n");
         printf("\n0) Back");
         TraverseList(keyList,&displayKey);
