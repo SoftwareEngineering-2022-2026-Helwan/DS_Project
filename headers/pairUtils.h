@@ -7,6 +7,6 @@ void addNewValueToNewKey(List * KeyValueList);
 void getKey(Data *keyData); 
 void getValues(List *valueList);
 void getPair(ListEntry *data); 
-
+void getNewValue(ListEntry *newValue);
 
 #endif

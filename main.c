@@ -7,7 +7,7 @@
 #include "headers/global.h"
 #include "headers/List.h"
 // #include "headers/sort.h"
-// #include "headers/pairUtils.h"
+#include "headers/pairUtils.h"
 // #include "headers/operations.h"
 #include "source_code/displayMenu.c"
 #include "source_code/validation.c"

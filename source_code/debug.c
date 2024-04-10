@@ -5,6 +5,7 @@ void task4Test(List*);
 void task6Test(List*);
 void task11Test(List *keyList,ListEntry *newPair);
 void task16Test(List *keyList);
+void task7Test(List *keyList);
 
 
 // |==================( Test Section )==================|
@@ -36,6 +37,11 @@ void debug(int task, List *keyList)
         case 16:
             task2Test(keyList, task);
             task16Test(keyList);
+            break;
+        case 7:
+            task2Test(keyList,task);
+            task7Test(keyList);
+            task4Test(keyList);
             break;
         
 
@@ -132,3 +138,12 @@ void task16Test(List *keyList)
 {
     removeKey(1,keyList);
 }
+
+
+// Task7: Remove Key
+void task7Test(List *keyList)
+{
+    ModificationHandler(keyList);
+}
+
+

@@ -8,6 +8,8 @@ void prepareValueList(ListEntry *newPair)
     CreateList(valueList);
 
     newPair->keyPair.values_list = valueList;
+
+    free(valueList);
 }
 
 int keyValidation( ListEntry newPair, List *keyList);
@@ -23,4 +25,5 @@ void removeKey( int position, List *keyList)
     displayPair(deletedPair);
     
     DestroyList(deletedPair.keyPair.values_list);
+
 }

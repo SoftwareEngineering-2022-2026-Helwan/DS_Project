@@ -9,9 +9,66 @@ void AddHandler( List *keyList)
 {
    
 }
-void ModificationHandler( List *list)
+void ModificationHandler( List *keyList)
 {
+    if(ListEmpty(keyList))
+    {
+        printf("\n[!] key List Empty !!\n");
+        return;
+    }
 
+    int option;
+    do
+    {
+        printf("\n[*] Select Key To Modifiy: \n");
+        printf("\n0) Back");
+        TraverseList(keyList,&displayKey);
+        ResetCounter();
+
+        option = validateChoice(0,ListSize(keyList));
+        
+        if(option == 0)
+        {
+            break;
+        }
+
+        Data selectedData;
+        RetrieveList(keyList,option-1,&selectedData);
+
+        int selectedValue;
+        do
+        {
+            if(ListEmpty(selectedData.keyPair.values_list))
+            {
+                printf("\n[!] value List Empty !!\n");
+                break;
+            }
+            printf("\n[*] Select Key To Modifiy: \n");
+            printf("\n0) Back");
+            TraverseList(selectedData.keyPair.values_list,&displayValueToSelect); 
+            ResetCounter();
+
+            selectedValue = validateChoice(0,ListSize(selectedData.keyPair.values_list));
+            
+            if(selectedValue == 0)
+            {
+                break;
+            }
+
+            Data newValue;
+            getNewValue(&newValue);
+            
+            ReplaceList(selectedData.keyPair.values_list,selectedValue-1,newValue);
+
+            printf("\n[!] Value Updated..!\n");
+
+            sortInt(selectedData.keyPair.values_list);
+
+
+        }while(selectedValue != 0);
+
+        
+    }while(option != 0);
 }
 
 
