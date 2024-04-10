@@ -73,29 +73,34 @@ void DisplayHandler( List *keyList)
 }
 
     
-void RemoveHandler(List *list) {
-    int x = 1;
-    while (x != 0) {
-        TraverseList(list,&displayKey);
-        printf("enter your choice : ");
-        scanf("%d", &x);
+void RemoveHandler(List *keyList) {
+    
+    if(ListEmpty(keyList))
+    {
+        printf("\n[!] key List Empty !!\n");
+        return;
+    }
+    
+    int choice = 1;
+    while (choice != 0 || choice > ListSize(keyList)+1) {
+        printf("\n\n0) Back");
+        TraverseList(keyList,&displayKey);
+        printf("\n%d) All List\n",ListSize(keyList)+1);
+        ResetCounter();
+        choice = validateChoice(0,ListSize(keyList)+1);
 
-        if (x == 0)
+        if (choice == 0)
         {
             return;
         }
-        else if (x < 0 || x > list->size+1)
+        else if (choice == ListSize(keyList)+1)
         {
-            printf("\n\nInvalid Option!\n");
-            continue;
-        }
-        else if (x==list->size+1)
-        {
-            DestroyList(list);
+            DestroyList(keyList);
+            return;
         }
         else
         {
-            removeKey(x - 1, list);
+            removeKey(choice - 1, keyList);
         }
     }
 }
