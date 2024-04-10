@@ -1,6 +1,7 @@
 
 
 #include "../headers/List.h"
+#include "../headers/operations.h"
 
 
 void AddHandler( List *keyList)
@@ -80,21 +81,22 @@ void RemoveHandler(List *list) {
         scanf("%d", &x);
 
         if (x == 0)
-            {
-            break;
-            }
-        else if (x < 1 || x > list->size)
-            {
-            return ;
-            }
+        {
+            return;
+        }
+        else if (x < 0 || x > list->size+1)
+        {
+            printf("\n\nInvalid Option!\n");
+            continue;
+        }
         else if (x==list->size+1)
         {
             DestroyList(list);
         }
-         else
-         {
+        else
+        {
             removeKey(x - 1, list);
-         }
+        }
     }
 }
 
