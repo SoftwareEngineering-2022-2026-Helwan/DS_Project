@@ -9,6 +9,7 @@ void ResetCounter()
     resetToken.value = -1;
 
     displayKey(resetToken);
+    displayValueToSelect(resetToken);
 }
 
 int validateChoice(int min, int max)

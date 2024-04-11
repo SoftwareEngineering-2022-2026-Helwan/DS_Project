@@ -1,4 +1,4 @@
-#include<stdio.h>
+a#include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 
@@ -6,9 +6,11 @@
 
 #include "headers/global.h"
 #include "headers/List.h"
-// #include "headers/sort.h"
+#include "headers/sort.h"
 #include "headers/pairUtils.h"
-// #include "headers/operations.h"
+#include "headers/operations.h"
+
+// |--------( source file )--------|
 #include "source_code/displayMenu.c"
 #include "source_code/validation.c"
 #include "source_code/handler.c"
