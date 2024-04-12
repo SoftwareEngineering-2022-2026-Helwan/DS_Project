@@ -1,12 +1,12 @@
 
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include "../headers/List.h"
 #include "../headers/operations.h"
 // #include "../headers/sort.h"
-// #include "../headers/displayMenu.h"
+#include "../headers/displayMenu.h"
 
 
 void getNewValue(ListEntry *newValue)
@@ -14,9 +14,27 @@ void getNewValue(ListEntry *newValue)
     String value = (String) malloc(255);
     printf("\n[+] New Value: ");
     scanf("%s",value);
-    newValue->value = atoi(value);
+    int valid = 1;
+    
+    for (int i = 0; value[i] != '\0'; ++i) {
+        if (!isdigit(value[i])) {
+            valid = 0;
+            break;
+        }
+        
+    }
+    if(valid)
+    {
+        newValue->value = atoi(value);
 
-    free(value);
+        free(value);
+
+    }
+    else
+    {   
+        newValue->value = -0;
+        printf("\n[!] Invalid Value Integer only!\n");
+    }
 }
 
 void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair)
@@ -39,10 +57,10 @@ void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair)
 
 void getKey(Data *keyData)
 {
-    String key = (String) malloc(255);
+    keyData->keyPair.key = (String) malloc(255);
+    
     printf("\n[?] Enter Key Name: ");
-    scanf("\n%s",key);
-    strcpy(keyData->keyPair.key,key);
+    scanf("\n%s",keyData->keyPair.key);
 }
 
 void getValues(List *valueList)
@@ -54,7 +72,10 @@ void getValues(List *valueList)
     {
 
         getNewValue(&newValue);
-        InsertList(valueList,0,newValue);
+        if(newValue.value != (-0))
+        {
+            InsertList(valueList,0,newValue);
+        }
         
         do
         {
@@ -74,28 +95,15 @@ void getValues(List *valueList)
 
 }
 
-void loop(ListEntry entry)
-{
 
-    printf("\nkey: %s\n",entry.keyPair.key);
-    Data value;
-    int i = 0 , size = ListSize(entry.keyPair.values_list);
-    printf("\nsize: %d",size);
-    while(i != size)
-    {
-        RetrieveList(entry.keyPair.values_list,i,&value);
-        printf("\nvalue%d: %d\n",i,value.value);
-        i++;
-    }
-}
 void getPair(ListEntry *data)
 {
+    
     getKey(data);
 
     prepareValueList(data);
 
     getValues(data->keyPair.values_list);
 
-    loop(*data);
 }
 

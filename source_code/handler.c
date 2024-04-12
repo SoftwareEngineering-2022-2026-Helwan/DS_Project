@@ -4,7 +4,7 @@
 
 void AddHandler( List *keyList)
 {
-   Data newPair;
+    Data newPair;
 
     char continueChoice;
 
@@ -12,11 +12,11 @@ void AddHandler( List *keyList)
     {
         getPair(&newPair);
 
-        int keyPosition ;//= keyValidation(newPair,keyList) ;
+        int keyPosition = keyValidation(newPair,keyList) ;
 
         if( keyPosition == -1) // if true ask to add new key
         {
-            //addNewKey(newPair,keyList);
+            addNewKey(newPair,keyList);
         }
         else // handle new key values if want to add them
         {
@@ -107,9 +107,12 @@ void ModificationHandler( List *keyList)
             }
 
             Data newValue;
-            getNewValue(&newValue);
             
-            ReplaceList(selectedData.keyPair.values_list,selectedValue-1,newValue);
+            getNewValue(&newValue);
+            if(newValue.value != (-0))
+            {
+                ReplaceList(selectedData.keyPair.values_list,selectedValue-1,newValue);
+            }
 
             printf("\n[!] Value Updated..!\n");
 

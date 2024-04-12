@@ -1,6 +1,7 @@
 
 #include "../headers/List.h"
-
+//#include "../headers/sort.h"
+#include <string.h>
 
 void prepareValueList(ListEntry *newPair)
 {
@@ -9,12 +10,37 @@ void prepareValueList(ListEntry *newPair)
 
     newPair->keyPair.values_list = valueList;
 
-    free(valueList);
 }
 
-int keyValidation( ListEntry newPair, List *keyList);
-void addNewKey( ListEntry newPair, List *keyList);
-void addNewValuesToExistingKey( ListEntry newPair, List *keyList, int position);
+int keyValidation( ListEntry newPair, List *keyList)
+{
+    int position = 0;
+    ListEntry comparedData;
+    
+    while(position < ListSize(keyList))
+    {
+        RetrieveList(keyList,position,&comparedData);
+
+        if(!strcmp(newPair.keyPair.key,comparedData.keyPair.key)) //return 0 if equal strings
+        {
+            return position;
+        }
+        
+        position++;
+    }
+
+    return -1; //incase there is no key match the new pair 
+
+}
+
+void addNewKey( ListEntry newPair, List *keyList)
+{
+    InsertList(keyList,0,newPair);
+
+    //sortString(keyList);
+    
+}
+
 void removeKey( int position, List *keyList)
 {
     Data deletedPair;

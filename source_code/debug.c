@@ -8,6 +8,7 @@ void task16Test(List *keyList);
 void task7Test(List *keyList);
 void task8Test(Data *newPair);
 void task15Test(List *keyList, Data existPair);
+void task12Test(List *keyList, Data existPair);
 
 // |==================( Test Section )==================|
 
@@ -53,6 +54,12 @@ void debug(int task, List *keyList)
             Data existPair;
             task8Test(&existPair);
             task15Test(keyList,existPair);
+            break;
+        case 12: 
+            task2Test(keyList,task);
+            Data IexistPair;
+            task8Test(&IexistPair);
+            task12Test(keyList,IexistPair);
             break;
         
 
@@ -175,4 +182,20 @@ void task15Test(List *keyList, Data existPair)
    displayPair(newData);
 }
 
+
+
+// Task12: validation
+void task12Test(List *keyList, Data existPair)
+{
+    Data newData;
+    int position = keyValidation(existPair,keyList);
+    printf("pos = %d\n",position);
+    if(position == -1)
+    {   
+        printf("\nNew Key!\n");
+        return;
+    }
+    RetrieveList(keyList,position,&newData);
+    displayPair(newData); 
+}
 
