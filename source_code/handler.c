@@ -57,7 +57,7 @@ void DisplayHandler( List *list){
        }
     }while(option != 4);
     
-};
+}
 
 
 
