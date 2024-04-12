@@ -1,13 +1,65 @@
-
-
 #include "../headers/List.h"
 
 
 
 void AddHandler( List *keyList)
 {
-   
+   Data newPair;
+
+    char continueChoice;
+
+    do
+    {
+        getPair(&newPair);
+
+        int keyPosition = keyValidation(newPair,keyList) ;
+
+        if( keyPosition == -1) // if true ask to add new key
+        {
+            addNewKey(newPair,keyList);
+        }
+        else // handle new key values if want to add them
+        {
+            char add;
+            do
+            {
+                printf("\n[!] Key { %s } Exist, Do you Want Add its New Values ? (Y/N) :  ",newPair.keyPair.key);
+                scanf("\n%c",&add);
+                add = (char) toupper(add);
+
+                if(add != 'Y' && add != 'N')
+                {
+                    printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");
+                }
+                else if (add == 'Y')
+                {
+                    addNewValuesToExistingKey(keyList,keyPosition,newPair);
+                }
+
+            }while(add != 'Y' && add != 'N');
+        }
+
+        do
+        {
+            printf("\n\n[?] Add Another Pair ( Y/N ): ");
+            scanf("\n%c",&continueChoice);
+            continueChoice = (char) toupper(continueChoice);
+                
+            if(continueChoice != 'Y' && continueChoice != 'N')
+            {
+                printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");
+            }
+            
+
+        }while(continueChoice != 'Y' && continueChoice != 'N');
+
+    }while(continueChoice != 'Y');
+
+    //sortString(keyList);
+
 }
+
+    
 void ModificationHandler( List *keyList)
 {
     if(ListEmpty(keyList))

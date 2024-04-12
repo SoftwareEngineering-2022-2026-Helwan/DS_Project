@@ -9,9 +9,9 @@
 #include "headers/sort.h"
 #include "headers/pairUtils.h"
 #include "headers/operations.h"
+#include "source_code/displayMenu.h"
 
 // |--------( source file )--------|
-#include "source_code/displayMenu.c"
 #include "source_code/validation.c"
 #include "source_code/handler.c"
 #include "source_code/menu.c"
