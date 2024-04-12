@@ -3,9 +3,9 @@
 
 #include "List.h"
 
-void prepareValue(Data *newPair);
+void prepareValueList(Data *newPair);
 int keyValidation( Data newPair, List *keyList);
 void addNewKey( Data newPair, List *keyList);
-void addNewValuesToExistingKey( Data newPair, List *keyList, int position);
+void addNewValuesToExistingKey( List *keyList, int position, Data newPair);
 void removeKey( int position, List *keyList);
 #endif

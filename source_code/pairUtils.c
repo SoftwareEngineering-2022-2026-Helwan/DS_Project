@@ -30,7 +30,7 @@ void getValues(List *valueList) {
 
 void getPair(ListEntry *data) {
     getKey(data);
-    prepareValue(data);
+    prepareValueList(data);
     getValues(data->keyPair.values_list);
 }
 

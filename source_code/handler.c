@@ -3,7 +3,8 @@
 #include "../headers/List.h"
 
 
-void AddHandler( List *list);
+void AddHandler( List *list)
+{}
 void RemoveHandler(List *list) {
     int x = 1;
     while (x != 0) {
@@ -30,8 +31,12 @@ void RemoveHandler(List *list) {
     }
 }
 
-void ModificationHandler( List *list);
-void DisplayHandler( List *list);
+void ModificationHandler( List *list)
+{}
+void DisplayHandler( List *list)
+{
+
+}
 
 
 
