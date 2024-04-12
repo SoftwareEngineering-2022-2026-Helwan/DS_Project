@@ -33,8 +33,31 @@ void RemoveHandler(List *list) {
 
 void ModificationHandler( List *list)
 {}
-void DisplayHandler( List *list)
-{
+void DisplayHandler( List *list){
+    ListEntry data;
+     int option;
+    do{  
+        TraverseList(list,&displayKey);
+        printf("enter your choice : ");
+        scanf("\n%d", &option);
+       switch(option){
+         case 1:
+            int pos;
+             printf("\nEnter a Id to Insert : ");
+             scanf("\n%d",&pos);
+             RetrieveList(list,pos,&data);
+            break;
+         case 2:
+            displayKeyHeader(data);
+            break;
+         case 3:
+           TraverseList(list,&displayValue);
+            break;
+         case 4:
+            return ;
+            break;
+       }
+    }while(option != 4);
 
 }
 
