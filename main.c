@@ -10,11 +10,11 @@
 #include "headers/pairUtils.h"
 #include "headers/operations.h"
 #include "headers/displayMenu.h"
+#include "headers/menu.h"
 
 // |--------( source file )--------|
 #include "source_code/validation.c"
 #include "source_code/handler.c"
-#include "source_code/menu.c"
 #include "source_code/debug.c"
 
 
@@ -41,19 +41,19 @@ int main(int argc, String argv[])
         switch(option)
         {
             case 1:
-                printAddMenu();
+                
                 AddHandler(&keyList);
                 break;
             case 2:
-                printRemoveMenu();
+                
                 RemoveHandler(&keyList);
                 break;
             case 3:
-                printKeyModificationMenu();
+        
                 ModificationHandler(&keyList);
                 break;
             case 4:
-                printDisplayMenu();
+                
                 DisplayHandler(&keyList);
                 break;
             case 0: 

@@ -70,7 +70,7 @@ void getValues(List *valueList)
 
     do
     {
-
+        
         getNewValue(&newValue);
         if(newValue.value != (-0))
         {
@@ -79,7 +79,7 @@ void getValues(List *valueList)
         
         do
         {
-            printf("\n\n[?] Add Another Pair ( Y/N ): ");
+            printf("\n\n[?] Add Another Value ( Y/N ): ");
             scanf("\n%c",&anotherValue);
             anotherValue = (char) toupper(anotherValue);
                         

@@ -10,9 +10,12 @@ void AddHandler( List *keyList)
 
     do
     {
+        printAddMenu();
         getPair(&newPair);
 
         int keyPosition = keyValidation(newPair,keyList) ;
+
+        
 
         if( keyPosition == -1) // if true ask to add new key
         {
@@ -41,6 +44,7 @@ void AddHandler( List *keyList)
 
         do
         {
+            printAnotherPairMenu();
             printf("\n\n[?] Add Another Pair ( Y/N ): ");
             scanf("\n%c",&continueChoice);
             continueChoice = (char) toupper(continueChoice);
@@ -53,7 +57,7 @@ void AddHandler( List *keyList)
 
         }while(continueChoice != 'Y' && continueChoice != 'N');
 
-    }while(continueChoice != 'Y');
+    }while(continueChoice == 'Y');
 
     //sortString(keyList);
 
@@ -71,6 +75,8 @@ void ModificationHandler( List *keyList)
     int option;
     do
     {
+        printKeyModificationMenu();
+        printKeyListMenu();
         printf("\n[*] Select Key To Modifiy: \n");
         printf("\n0) Back");
         TraverseList(keyList,&displayKey);
@@ -94,7 +100,8 @@ void ModificationHandler( List *keyList)
                 printf("\n[!] value List Empty !!\n");
                 break;
             }
-            printf("\n[*] Select Key To Modifiy: \n");
+            printValueListMenu();
+            printf("\n[*] Select Value To Modifiy: \n");
             printf("\n0) Back");
             TraverseList(selectedData.keyPair.values_list,&displayValueToSelect); 
             ResetCounter();
@@ -139,8 +146,7 @@ void DisplayHandler( List *keyList)
     char back = ' ';
     do
     {
-
-        
+        printDisplayMenu();
         printf("\n[*] Select Key To Display: \n");
         printf("\n0) Back");
         TraverseList(keyList,&displayKey);
@@ -194,7 +200,10 @@ void RemoveHandler(List *keyList) {
     }
     
     int choice = 1;
-    while (choice != 0 || choice > ListSize(keyList)+1) {
+    while (choice != 0 || choice > ListSize(keyList)+1) 
+    {
+        printRemoveMenu();
+        printKeyListMenu();
         printf("\n\n0) Back");
         TraverseList(keyList,&displayKey);
         printf("\n%d) All List\n",ListSize(keyList)+1);
