@@ -12,11 +12,11 @@ void AddHandler( List *keyList)
     {
         getPair(&newPair);
 
-        int keyPosition = keyValidation(newPair,keyList) ;
+        int keyPosition ;//= keyValidation(newPair,keyList) ;
 
         if( keyPosition == -1) // if true ask to add new key
         {
-            addNewKey(newPair,keyList);
+            //addNewKey(newPair,keyList);
         }
         else // handle new key values if want to add them
         {

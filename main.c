@@ -9,7 +9,7 @@
 #include "headers/sort.h"
 #include "headers/pairUtils.h"
 #include "headers/operations.h"
-#include "source_code/displayMenu.h"
+#include "headers/displayMenu.h"
 
 // |--------( source file )--------|
 #include "source_code/validation.c"
