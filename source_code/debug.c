@@ -6,7 +6,8 @@ void task6Test(List*);
 void task11Test(List *keyList,ListEntry *newPair);
 void task16Test(List *keyList);
 void task7Test(List *keyList);
-
+void task8Test(Data *newPair);
+void task15Test(List *keyList, Data existPair);
 
 // |==================( Test Section )==================|
 
@@ -42,6 +43,16 @@ void debug(int task, List *keyList)
             task2Test(keyList,task);
             task7Test(keyList);
             task4Test(keyList);
+            break;
+        case 8:
+            Data newPair;
+            task8Test(&newPair);
+            break;
+        case 15:
+            task2Test(keyList,task);
+            Data existPair;
+            task8Test(&existPair);
+            task15Test(keyList,existPair);
             break;
         
 
@@ -144,6 +155,24 @@ void task16Test(List *keyList)
 void task7Test(List *keyList)
 {
     ModificationHandler(keyList);
+}
+
+
+// Task8: get pair
+void task8Test(Data *newPair)
+{
+    getPair(newPair);
+    displayPair(*newPair);
+}
+
+
+// Task15: addNewValuesToExistingKey
+void task15Test(List *keyList, Data existPair)
+{
+   Data newData;
+   addNewValuesToExistingKey(keyList,0,existPair);
+   RetrieveList(keyList,0,&newData);
+   displayPair(newData);
 }
 
 

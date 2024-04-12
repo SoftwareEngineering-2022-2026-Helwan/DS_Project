@@ -3,10 +3,10 @@
 
 #include "List.h"
 
-void addNewValueToExistingKey(List * KeyValueList);
+void getNewValue(ListEntry *newValue);
+void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair);
 void getKey(Data *keyData); 
 void getValues(List *valueList);
 void getPair(ListEntry *data); 
-void getNewValue(ListEntry *newValue);
 
 #endif
