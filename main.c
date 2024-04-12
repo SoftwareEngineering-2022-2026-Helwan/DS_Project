@@ -8,7 +8,7 @@
 #include "headers/List.h"
 //#include "headers/LinkedList.h"
 // #include "headers/sort.h"
-// #include "headers/pairUtils.h"
+#include "headers/pairUtils.h"
 // #include "headers/operations.h"
 //#include "headers/handler.h"
 #include "source_code/handler.c"
