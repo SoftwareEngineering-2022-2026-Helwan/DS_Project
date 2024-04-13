@@ -3,6 +3,15 @@
 #include <stdlib.h>
 
 
+void ResetCounter()
+{
+    Data resetToken;
+    resetToken.value = -1;
+
+    displayKey(resetToken);
+    displayValueToSelect(resetToken);
+}
+
 int validateChoice(int min, int max)
 {
     int option;
@@ -10,12 +19,12 @@ int validateChoice(int min, int max)
     do
     {
 
-        printf("[?] Choose: ");
+        printf("\n\n[?] Choose: ");
         scanf("\n%s",Soption);
         option = ((int) *Soption ) - 48;
         if(option  > max || option < min)
         {
-            printf("\n[!] Invalid Option!  \n");
+            printf("\n\n[!] Invalid Option!  \n");
         }
     }while(option < min || option > max);
 }

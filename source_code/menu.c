@@ -23,3 +23,19 @@ void printDisplayMenu()
     printf("\n|----------( Key Menu )----------|\n");
 }
 
+void printKeyListMenu()
+{
+    printf("\n|----------( Key List )----------|\n");
+}
+
+void printValueListMenu()
+{
+    printf("\n|----------( Value List )----------|\n");
+}
+
+void printAnotherPairMenu()
+{
+    printf("\n[?]----------( Another Pair )----------[?]\n");
+}
+
+
