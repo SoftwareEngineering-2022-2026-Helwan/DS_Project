@@ -1,4 +1,6 @@
 #include "../headers/List.h"
+#include "../headers/displayMenu.h"
+#include "../headers/menu.h"
 
 void task2Test(List*,int);
 void task4Test(List*);
