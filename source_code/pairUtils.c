@@ -50,7 +50,7 @@ void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair)
         InsertList(existKey.keyPair.values_list,0,newValue);
 
     }
-    //sortInt(existKey.keyPair.values_list);
+    sortInt(existKey.keyPair.values_list);
     ReplaceList(KeyList,position,existKey);
 
 }
@@ -91,7 +91,7 @@ void getValues(List *valueList)
 
     }while(anotherValue == 'Y');
 
-    //sortInt(valueList);
+    sortInt(valueList);
 
 }
 

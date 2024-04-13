@@ -89,8 +89,8 @@ void task2Test(List *keyList, int task)
     value7.value = 70;
 
     InsertList(pairData.keyPair.values_list,0, value1);
-    InsertList(pairData.keyPair.values_list,0, value2);
     InsertList(pairData.keyPair.values_list,0, value7);
+    InsertList(pairData.keyPair.values_list,0, value2);
     
     InsertList(keyList, 0, pairData);
 

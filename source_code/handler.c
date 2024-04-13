@@ -124,7 +124,7 @@ void ModificationHandler( List *keyList)
 
             printf("\n[!] Value Updated..!\n");
 
-            //sortInt(selectedData.keyPair.values_list);
+            sortInt(selectedData.keyPair.values_list);
 
 
         }while(selectedValue != 0);
