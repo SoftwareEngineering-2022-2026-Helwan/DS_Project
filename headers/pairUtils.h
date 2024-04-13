@@ -4,9 +4,9 @@
 #include "List.h"
 
 void getNewValue(ListEntry *newValue);
-void getKey(Data *keyData);
+void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair);
+void getKey(Data *keyData); 
 void getValues(List *valueList);
-void getPair(ListEntry *data);
-
+void getPair(ListEntry *data); 
 
 #endif

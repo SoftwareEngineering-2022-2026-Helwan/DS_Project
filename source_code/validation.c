@@ -1,7 +1,7 @@
 #include <ctype.h>
 #include<stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 void ResetCounter()
 {
@@ -21,7 +21,7 @@ int validateChoice(int min, int max)
 
         printf("\n\n[?] Choose: ");
         scanf("\n%s",Soption);
-        option = ((int) *Soption ) - 48;
+        option = atoi(Soption);
         if(option  > max || option < min)
         {
             printf("\n\n[!] Invalid Option!  \n");

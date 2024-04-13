@@ -1,60 +1,70 @@
-
-
 #include "../headers/List.h"
-#include "../headers/displayMenu.h"
+#include "../headers/sort.h"
 
-void AddHandler( List *list)
+
+
+void AddHandler( List *keyList)
 {
-    ListEntry int data;
-    char answer;
-    int position ;
-    position = keyValidation(data, &keyList);
-    do {
-        getPair(&data);
-        if (position ==-1) {
-            printf("This key already exists.\n");
-            printf("Do you want to add a new value to the existing key? (Yes or No): ");
-            scanf(" %c", &answer); 
-            if (answer == 'N') {
-                printf("Do you want to add another pair? (Yes or No): ");
-                scanf(" %c", &answer); 
-                if (answer != 'Y') {
-                    sortString(&keyList);
-                }
-            } else {
-                addNewValuesToExistingKey(&keyList, position, data); 
-            }
-        } else {
-            addNewKey(data, &keyList); 
-        }
-    } while (answer == 'Y');
-}
-void RemoveHandler(List *list) {
-    int x = 1;
-    while (x != 0) {
-        TraverseList(list,&displayKey);
-        printf("enter your choice : ");
-        scanf("%d", &x);
+    Data newPair;
 
-        if (x == 0)
-            {
-            break;
-            }
-        else if (x < 1 || x > list->size)
-            {
-            return ;
-            }
-        else if (x==list->size+1)
+    char continueChoice;
+
+    do
+    {
+        printAddMenu();
+        getPair(&newPair);
+
+        int keyPosition = keyValidation(newPair,keyList) ;
+
+        
+
+        if( keyPosition == -1) // if true ask to add new key
         {
-            DestroyList(list);
+            addNewKey(newPair,keyList);
         }
-         else
-         {
-            removeKey(x - 1, list);
-         }
-    }
+        else // handle new key values if want to add them
+        {
+            char add;
+            do
+            {
+                printf("\n[!] Key { %s } Exist, Do you Want Add its New Values ? (Y/N) :  ",newPair.keyPair.key);
+                scanf("\n%c",&add);
+                add = (char) toupper(add);
+
+                if(add != 'Y' && add != 'N')
+                {
+                    printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");
+                }
+                else if (add == 'Y')
+                {
+                    addNewValuesToExistingKey(keyList,keyPosition,newPair);
+                }
+
+            }while(add != 'Y' && add != 'N');
+        }
+
+        do
+        {
+            printAnotherPairMenu();
+            printf("\n\n[?] Add Another Pair ( Y/N ): ");
+            scanf("\n%c",&continueChoice);
+            continueChoice = (char) toupper(continueChoice);
+                
+            if(continueChoice != 'Y' && continueChoice != 'N')
+            {
+                printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");
+            }
+            
+
+        }while(continueChoice != 'Y' && continueChoice != 'N');
+
+    }while(continueChoice == 'Y');
+
+    sortString(keyList);
+
 }
 
+    
 void ModificationHandler( List *keyList)
 {
     if(ListEmpty(keyList))
@@ -122,6 +132,8 @@ void ModificationHandler( List *keyList)
         
     }while(option != 0);
 }
+
+
 void DisplayHandler( List *keyList)
 {
     
@@ -178,4 +190,44 @@ void DisplayHandler( List *keyList)
     }while(back != 'Y' && choice != 0);
 
 }
+
+    
+void RemoveHandler(List *keyList) {
+    
+    if(ListEmpty(keyList))
+    {
+        printf("\n[!] key List Empty !!\n");
+        return;
+    }
+    
+    int choice = 1;
+    while (choice != 0 || choice > ListSize(keyList)+1) 
+    {
+        printRemoveMenu();
+        printKeyListMenu();
+        printf("\n\n0) Back");
+        TraverseList(keyList,&displayKey);
+        printf("\n%d) All List\n",ListSize(keyList)+1);
+        ResetCounter();
+        choice = validateChoice(0,ListSize(keyList)+1);
+
+        if (choice == 0)
+        {
+            return;
+        }
+        else if (choice == ListSize(keyList)+1)
+        {
+            DestroyList(keyList);
+            return;
+        }
+        else
+        {
+            removeKey(choice - 1, keyList);
+        }
+    }
+}
+
+
+
+
 
