@@ -9,6 +9,8 @@ void task7Test(List *keyList);
 void task8Test(Data *newPair);
 void task15Test(List *keyList, Data existPair);
 void task12Test(List *keyList, Data existPair);
+void task9Test(List *keyList);
+
 
 // |==================( Test Section )==================|
 
@@ -61,6 +63,10 @@ void debug(int task, List *keyList)
             task8Test(&IexistPair);
             task12Test(keyList,IexistPair);
             break;
+        case 9:
+            task2Test(keyList,task);
+            task9Test(keyList);
+            break;
         
 
         
@@ -73,16 +79,18 @@ void debug(int task, List *keyList)
 // Task2: List
 void task2Test(List *keyList, int task)
 {
-    Data pairData, value1, value2;
+    Data pairData, value1, value2, value7;
 
     pairData.keyPair.key = "key1";
     prepareValueList(&pairData);
 
-    value1.value = 10;
-    value2.value = 30;
+    value1.value = 20;
+    value2.value = 10;
+    value7.value = 70;
 
     InsertList(pairData.keyPair.values_list,0, value1);
     InsertList(pairData.keyPair.values_list,0, value2);
+    InsertList(pairData.keyPair.values_list,0, value7);
     
     InsertList(keyList, 0, pairData);
 
@@ -199,3 +207,17 @@ void task12Test(List *keyList, Data existPair)
     displayPair(newData); 
 }
 
+
+//Task9 : sort int
+void task9Test(List *keyList)
+{
+    Data dataToSort;
+
+    RetrieveList(keyList,0,&dataToSort);
+    printf("\nBefore: \n");
+    displayPair(dataToSort);
+    sortInt(dataToSort.keyPair.values_list);
+    printf("\nAfter: \n");
+    displayPair(dataToSort);
+
+}

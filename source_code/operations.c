@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../headers/List.h"
-//#include "../headers/sort.h"
+#include "../headers/sort.h"
 #include <string.h>
 #include "../headers/displayMenu.h"
 
