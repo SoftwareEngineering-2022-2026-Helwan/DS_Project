@@ -1,9 +1,7 @@
-# to compile from terminal run 
-
-# gcc obj/* main.c -o main 
+# to compile from terminal run :  gcc obj/* main.c -o main 
 
 # then run (project) : ./main 
-# ex:  ./main
+ex:  ./main
 
 # or run (debug) : ./main -d testNumber 
-# ex:  ./main -d 4
+ex:  ./main -d 4
