@@ -4,7 +4,31 @@
 #include "../headers/displayMenu.h"
 
 void AddHandler( List *list)
-{}
+{
+    ListEntry int data;
+    char answer;
+    int position ;
+    position = keyValidation(data, &keyList);
+    do {
+        getPair(&data);
+        if (position ==-1) {
+            printf("This key already exists.\n");
+            printf("Do you want to add a new value to the existing key? (Yes or No): ");
+            scanf(" %c", &answer); 
+            if (answer == 'N') {
+                printf("Do you want to add another pair? (Yes or No): ");
+                scanf(" %c", &answer); 
+                if (answer != 'Y') {
+                    sortString(&keyList);
+                }
+            } else {
+                addNewValuesToExistingKey(&keyList, position, data); 
+            }
+        } else {
+            addNewKey(data, &keyList); 
+        }
+    } while (answer == 'Y');
+}
 void RemoveHandler(List *list) {
     int x = 1;
     while (x != 0) {
