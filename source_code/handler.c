@@ -1,7 +1,7 @@
 
 
 #include "../headers/List.h"
-
+#include "../headers/displayMenu.h"
 
 void AddHandler( List *list)
 {}
@@ -42,10 +42,7 @@ void DisplayHandler( List *list){
         scanf("\n%d", &option);
        switch(option){
          case 1:
-            int pos;
-             printf("\nEnter a Id to Insert : ");
-             scanf("\n%d",&pos);
-             RetrieveList(list,pos,&data);
+             Retrieve(list,&data);
             break;
          case 2:
             displayKeyHeader(data);
@@ -60,7 +57,13 @@ void DisplayHandler( List *list){
     }while(option != 4);
 
 }
-
+void Retrieve(List *list,ListEntry listItem){
+       int pos;
+        printf("\nEnter a position to Retrieve : ");
+        scanf("\n%d",&pos);
+       RetrieveList(list,pos,&listItem);
+       printf("\n%d\n",listItem.value);
+       }
 
 
 
