@@ -10,7 +10,7 @@ void task8Test(Data *newPair);
 void task15Test(List *keyList, Data existPair);
 void task12Test(List *keyList, Data existPair);
 void task9Test(List *keyList);
-
+void task10Test(List *keyList);
 
 // |==================( Test Section )==================|
 
@@ -67,6 +67,12 @@ void debug(int task, List *keyList)
             task2Test(keyList,task);
             task9Test(keyList);
             break;
+        case 10: 
+            task2Test(keyList,task);
+            task10Test(keyList);
+            break;
+        default:
+            printf("\n[!] Invalid Debug Option!\n");
         
 
         
@@ -92,7 +98,6 @@ void task2Test(List *keyList, int task)
     InsertList(pairData.keyPair.values_list,0, value7);
     InsertList(pairData.keyPair.values_list,0, value2);
     
-    InsertList(keyList, 0, pairData);
 
     
 
@@ -117,12 +122,13 @@ void task2Test(List *keyList, int task)
 
     ReplaceList(pairData2.keyPair.values_list,0,value5);
     
-    InsertList(keyList, 1, pairData2);
 
     InsertList(pairData3.keyPair.values_list,0,value6);
     InsertList(pairData3.keyPair.values_list,0,value3);
 
-    InsertList(keyList,1,pairData3);
+    InsertList(keyList, 0, pairData2);
+    InsertList(keyList, 0, pairData);
+    InsertList(keyList, 0, pairData3); 
 
     if (task == 2)
     {
@@ -221,3 +227,19 @@ void task9Test(List *keyList)
     displayPair(dataToSort);
 
 }
+
+//Task10 : sort int
+void task10Test(List *keyList)
+{
+    
+    printf("\nBefore: \n");
+    TraverseList(keyList,&displayKey);
+
+    sortString(keyList);
+
+    printf("\nAfter: \n");
+    TraverseList(keyList,&displayKey);
+
+}
+
+
