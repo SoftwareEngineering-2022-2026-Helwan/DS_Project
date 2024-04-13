@@ -3,7 +3,7 @@
 
 #include "List.h"
 
-//void addNewValueToNewKey(List * KeyValueList);
+void getNewValue(ListEntry *newValue);
 void getKey(Data *keyData);
 void getValues(List *valueList);
 void getPair(ListEntry *data);

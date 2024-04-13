@@ -1,4 +1,6 @@
 #include "../headers/List.h"
+#include "../headers/displayMenu.h"
+#include "../headers/menu.h"
 
 void task2Test(List*,int);
 void task4Test(List*);
@@ -9,6 +11,8 @@ void task7Test(List *keyList);
 void task8Test(Data *newPair);
 void task15Test(List *keyList, Data existPair);
 void task12Test(List *keyList, Data existPair);
+void task9Test(List *keyList);
+void task10Test(List *keyList);
 
 // |==================( Test Section )==================|
 
@@ -61,6 +65,16 @@ void debug(int task, List *keyList)
             task8Test(&IexistPair);
             task12Test(keyList,IexistPair);
             break;
+        case 9:
+            task2Test(keyList,task);
+            task9Test(keyList);
+            break;
+        case 10: 
+            task2Test(keyList,task);
+            task10Test(keyList);
+            break;
+        default:
+            printf("\n[!] Invalid Debug Option!\n");
         
 
         
@@ -73,24 +87,25 @@ void debug(int task, List *keyList)
 // Task2: List
 void task2Test(List *keyList, int task)
 {
-    Data pairData, value1, value2;
+    Data pairData, value1, value2, value7;
 
     pairData.keyPair.key = "key1";
     prepareValueList(&pairData);
 
-    value1.value = 10;
-    value2.value = 30;
+    value1.value = 20;
+    value2.value = 10;
+    value7.value = 70;
 
     InsertList(pairData.keyPair.values_list,0, value1);
+    InsertList(pairData.keyPair.values_list,0, value7);
     InsertList(pairData.keyPair.values_list,0, value2);
     
-    InsertList(keyList, 0, pairData);
 
     
 
     Data pairData2, value3, value4;
 
-    pairData2.keyPair.key = "key2";
+    pairData2.keyPair.key = "key6";
     prepareValueList(&pairData2);
 
     value3.value = 20;
@@ -109,12 +124,13 @@ void task2Test(List *keyList, int task)
 
     ReplaceList(pairData2.keyPair.values_list,0,value5);
     
-    InsertList(keyList, 1, pairData2);
 
     InsertList(pairData3.keyPair.values_list,0,value6);
     InsertList(pairData3.keyPair.values_list,0,value3);
 
-    InsertList(keyList,1,pairData3);
+    InsertList(keyList, 0, pairData);
+    InsertList(keyList, 0, pairData2);
+    InsertList(keyList, 0, pairData3); 
 
     if (task == 2)
     {
@@ -198,4 +214,34 @@ void task12Test(List *keyList, Data existPair)
     RetrieveList(keyList,position,&newData);
     displayPair(newData); 
 }
+
+
+//Task9 : sort int
+void task9Test(List *keyList)
+{
+    Data dataToSort;
+
+    RetrieveList(keyList,0,&dataToSort);
+    printf("\nBefore: \n");
+    displayPair(dataToSort);
+    sortInt(dataToSort.keyPair.values_list);
+    printf("\nAfter: \n");
+    displayPair(dataToSort);
+
+}
+
+//Task10 : sort int
+void task10Test(List *keyList)
+{
+    
+    printf("\nBefore: \n");
+    TraverseList(keyList,&displayKey);
+
+    sortString(keyList);
+
+    printf("\nAfter: \n");
+    TraverseList(keyList,&displayKey);
+
+}
+
 

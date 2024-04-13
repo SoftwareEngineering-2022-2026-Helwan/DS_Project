@@ -5,6 +5,35 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+
+void getNewValue(ListEntry *newValue)
+{
+    String value = (String) malloc(255);
+    printf("\n[+] New Value: ");
+    scanf("%s",value);
+    int valid = 1;
+    
+    for (int i = 0; value[i] != '\0'; ++i) {
+        if (!isdigit(value[i])) {
+            valid = 0;
+            break;
+        }
+        
+    }
+    if(valid)
+    {
+        newValue->value = atoi(value);
+
+        free(value);
+
+    }
+    else
+    {   
+        newValue->value = -0;
+        printf("\n[!] Invalid Value Integer only!\n");
+    }
+}
+
 void getKey(Data *keyData) {
     keyData->keyPair.key = (char*)malloc(64 * sizeof(char));
     printf("Enter key (max 63 characters): ");
