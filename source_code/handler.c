@@ -60,7 +60,7 @@ void AddHandler( List *keyList)
 
     }while(continueChoice == 'Y');
 
-    //sortString(keyList);
+    sortString(keyList);
 
 }
 

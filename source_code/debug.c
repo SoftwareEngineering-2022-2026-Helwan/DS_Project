@@ -103,7 +103,7 @@ void task2Test(List *keyList, int task)
 
     Data pairData2, value3, value4;
 
-    pairData2.keyPair.key = "key2";
+    pairData2.keyPair.key = "key6";
     prepareValueList(&pairData2);
 
     value3.value = 20;
@@ -126,8 +126,8 @@ void task2Test(List *keyList, int task)
     InsertList(pairData3.keyPair.values_list,0,value6);
     InsertList(pairData3.keyPair.values_list,0,value3);
 
-    InsertList(keyList, 0, pairData2);
     InsertList(keyList, 0, pairData);
+    InsertList(keyList, 0, pairData2);
     InsertList(keyList, 0, pairData3); 
 
     if (task == 2)

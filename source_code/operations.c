@@ -40,7 +40,7 @@ void addNewKey( ListEntry newPair, List *keyList)
 {
     InsertList(keyList,0,newPair);
 
-    //sortString(keyList);
+    sortString(keyList);
     
 }
 
