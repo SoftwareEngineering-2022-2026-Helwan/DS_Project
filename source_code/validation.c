@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "../headers/global.h"
 
 void ResetCounter()
 {
@@ -27,6 +28,7 @@ int validateChoice(int min, int max)
             printf("\n\n[!] Invalid Option!  \n");
         }
     }while(option < min || option > max);
+    return option;
 }
 char wantContinue()
 {
@@ -36,5 +38,6 @@ char wantContinue()
         printf("[?] Choose: ");
         scanf("\n%c",&option);
     }while(tolower(option) != 'n' && tolower(option) != 'y');
+    return option;
 }
 
