@@ -8,7 +8,6 @@
 #include "../headers/sort.h"
 #include "../headers/displayMenu.h"
 
-
 void getNewValue(ListEntry *newValue)
 {
     String value = (String) malloc(255);
@@ -41,6 +40,8 @@ void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair)
 {
     Data existKey;
     RetrieveList(KeyList,position,&existKey);
+
+    valueValidation( &newPair, existKey.keyPair.values_list, 0);
 
     while(!ListEmpty(newPair.keyPair.values_list))
     {

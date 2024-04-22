@@ -7,4 +7,6 @@ void prepareValueList(Data *newPair);
 int keyValidation( Data newPair, List *keyList);
 void addNewKey( Data newPair, List *keyList);
 void removeKey( int position, List *keyList);
+void valueValidation( ListEntry *newPair, List *valueList, int sameList);
+
 #endif

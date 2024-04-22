@@ -56,3 +56,54 @@ void removeKey( int position, List *keyList)
     DestroyList(deletedPair.keyPair.values_list);
 
 }
+
+
+int valueExist( ListEntry newPair, List *valueList, int sameList)
+{
+    int position = 0, exist = 0;
+    ListEntry comparedData;
+
+    while(position < ListSize(valueList))
+    {
+        RetrieveList(valueList,position,&comparedData);
+
+        if( newPair.value == comparedData.value ) 
+        {
+		exist++;
+
+		if(!sameList || exist >= 2)
+		{
+			return position;
+		}
+			
+        }
+
+        position++;
+    }
+
+    return -1; //incase there is no value match the new pair
+
+}
+
+void valueValidation( ListEntry *newPair, List *valueList, int sameList)
+{
+    int position = 0;
+    int valuePosition;
+    ListEntry comparedData;
+
+    while(position < ListSize(newPair->keyPair.values_list))
+    {
+        RetrieveList(newPair->keyPair.values_list,position,&comparedData);
+
+
+	valuePosition = valueExist(comparedData, valueList, sameList);
+	if(valuePosition != -1)
+	{
+		DeleteList(newPair->keyPair.values_list,valuePosition,&comparedData);
+	}
+
+        position++;
+    }
+
+
+}

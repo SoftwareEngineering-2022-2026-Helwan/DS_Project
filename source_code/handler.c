@@ -20,7 +20,8 @@ void AddHandler( List *keyList)
 
         if( keyPosition == -1) // if true ask to add new key
         {
-            addNewKey(newPair,keyList);
+		valueValidation(&newPair, newPair.keyPair.values_list, 1);
+		addNewKey(newPair,keyList);
         }
         else // handle new key values if want to add them
         {
@@ -120,9 +121,11 @@ void ModificationHandler( List *keyList)
             if(newValue.value != (-0))
             {
                 ReplaceList(selectedData.keyPair.values_list,selectedValue-1,newValue);
+		valueValidation(&selectedData ,selectedData.keyPair.values_list, 1);
             }
 
             printf("\n[!] Value Updated..!\n");
+
 
             sortInt(selectedData.keyPair.values_list);
 

@@ -1,6 +1,17 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+// |--------( headers )--------|
+
+#include "../headers/global.h"
 #include "../headers/List.h"
+#include "../headers/sort.h"
+#include "../headers/pairUtils.h"
+#include "../headers/operations.h"
 #include "../headers/displayMenu.h"
 #include "../headers/menu.h"
+
 
 void task2Test(List*,int);
 void task4Test(List*);
