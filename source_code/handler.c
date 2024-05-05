@@ -220,12 +220,17 @@ void RemoveHandler(List *keyList) {
         }
         else if (choice == ListSize(keyList)+1)
         {
+	    TraverseList(keyList,&displayPair);
             DestroyList(keyList);
             return;
         }
         else
         {
             removeKey(choice - 1, keyList);
+	    if(ListEmpty(keyList))
+	    {
+		    break;
+	    }
         }
     }
 }

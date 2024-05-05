@@ -3,7 +3,7 @@
 AppName="MultiMap"
 
 gcc -c source_code/displayMenu.c -o  obj/displayMenu.o 
-gcc -c source_code/list.c   -o obj/list.o
+gcc -c source_code/List.c   -o obj/List.o
 gcc -c source_code/menu.c -o  obj/menu.o  
 gcc -c source_code/operations.c  -o obj/operations.o 
 gcc -c source_code/pairUtils.c -o obj/pairUtils.o 

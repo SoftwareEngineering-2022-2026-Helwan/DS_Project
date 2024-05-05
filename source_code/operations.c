@@ -99,7 +99,6 @@ void valueValidation( ListEntry *newPair, List *valueList, int sameList)
             position = 0;
         }
         
-        printf("\nposition: %d\n",position);
 
         RetrieveList(newPair->keyPair.values_list,position,&comparedData);
 
