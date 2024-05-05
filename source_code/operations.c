@@ -72,7 +72,7 @@ int valueExist( ListEntry newPair, List *valueList, int sameList)
 		exist++;
 
 		if(!sameList || exist >= 2)
-		{
+		{   
 			return position;
 		}
 			
@@ -93,16 +93,38 @@ void valueValidation( ListEntry *newPair, List *valueList, int sameList)
 
     while(position < ListSize(newPair->keyPair.values_list))
     {
+        valuePosition = -1;
+        if(!ListEmpty(newPair->keyPair.values_list) && position <= -1)
+        {
+            position = 0;
+        }
+        
+        printf("\nposition: %d\n",position);
+
         RetrieveList(newPair->keyPair.values_list,position,&comparedData);
 
 
-	valuePosition = valueExist(comparedData, valueList, sameList);
-	if(valuePosition != -1)
-	{
-		DeleteList(newPair->keyPair.values_list,valuePosition,&comparedData);
-	}
-
-        position++;
+        valuePosition = valueExist(comparedData, valueList, sameList);
+        
+    
+        if(valuePosition != -1)
+        {
+            if(sameList == 1)
+            {
+                DeleteList(newPair->keyPair.values_list,valuePosition,&comparedData);
+            }
+            else
+            {
+                DeleteList(newPair->keyPair.values_list,position,&comparedData);   
+            }
+            position--;
+        }
+        else
+        {
+            position++;
+        }
+        
+            
     }
 
 
