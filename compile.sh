@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AppName="MultiMap"
+AppName="multiMap"
 
 gcc -c source_code/displayMenu.c -o  obj/displayMenu.o 
 gcc -c source_code/List.c   -o obj/List.o

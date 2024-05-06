@@ -116,7 +116,7 @@ void valueValidation( ListEntry *newPair, List *valueList, int sameList)
             {
                 DeleteList(newPair->keyPair.values_list,position,&comparedData);   
             }
-            position--;
+            position = 0;
         }
         else
         {
