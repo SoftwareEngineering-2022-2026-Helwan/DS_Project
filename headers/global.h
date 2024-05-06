@@ -19,5 +19,13 @@ typedef union
 	value_list_data value;
 }Data;
 
+typedef enum 
+{
+	ASC = 1,
+	DSC = 2
+}sortDir;
+
+const static sortDir sortDirection = ASC;
+
 
 #endif

@@ -28,7 +28,9 @@ void DeleteList(List *pl,int pos,ListEntry *pe);
 void RetrieveList(List *pl,int pos,ListEntry *pe);
 void ReplaceList(List *pl,int pos,ListEntry e);
 void TraverseList(List *pl,void(*pf)(ListEntry));
-
+// void sortInt(List *list);
+// void sortString(List *list);
+void SortList(List *list, int (*compareTo)(ListEntry,ListEntry));
 
 
 

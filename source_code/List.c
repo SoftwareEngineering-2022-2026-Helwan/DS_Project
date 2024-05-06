@@ -113,3 +113,140 @@ void TraverseList(List *pl,void(*pf)(ListEntry))
     }
 
 }
+
+
+void SortList(List *list, int (*compareTo)(ListEntry,ListEntry))
+{
+    ListNode *isBig, *isSmall;
+
+    isBig = list->head;
+    isSmall = isBig->next; 
+    
+    while(isBig)
+    {
+        isSmall = list->head;
+        while(isSmall)
+        {
+            if((*compareTo)(isBig->data, isSmall->data))
+            {
+                ListEntry tmp = isBig->data;
+                isBig->data = isSmall->data;
+                isSmall->data = tmp;                
+            }  
+            
+            if(isSmall)
+            {
+                isSmall = isSmall->next;
+            }
+        }
+        if(isBig)
+        {
+            isBig = isBig->next; 
+        }
+    }
+
+}
+
+
+// #include<string.h>
+
+// int isLarge(String key1, String key2)
+// {
+//     if(strcmp(key1,key2))
+//     {
+        
+//         for( int index = 0;( (index < strlen(key1)) && (index < strlen(key2)) )  ;  index++)
+//         {
+//             if(sortDirection == ASC)
+//             {
+//                 if(key1[index] > key2[index])
+//                 {
+//                     return 1;
+//                 }
+//             }
+//             else
+//             {
+//                 if(key1[index] < key2[index])
+//                 {
+//                     return 1;
+//                 }
+//             }
+//         }
+//     }
+
+//     return 0;
+// }
+
+// void sortString(List *keyList)
+// {
+//         ListNode *isBig, *isSmall;
+
+//     isBig = keyList->head;
+//     isSmall = isBig->next; 
+    
+//     while(isBig)
+//     {
+//         isSmall = keyList->head;
+//         while(isSmall)
+//         {
+//             if(isLarge(isBig->data.keyPair.key, isSmall->data.keyPair.key))
+//             {
+//                 ListEntry tmp = isBig->data;
+//                 isBig->data = isSmall->data;
+//                 isSmall->data = tmp;                
+//             }  
+            
+//             if(isSmall)
+//             {
+//                 isSmall = isSmall->next;
+//             }
+//         }
+//         if(isBig)
+//         {
+//             isBig = isBig->next; 
+//         }
+//     }
+
+// }
+
+// void sortInt(List *valueList)
+// {
+//     ListNode *isBig, *isSmall;
+
+//     isBig = valueList->head;
+//     isSmall = isBig->next; 
+    
+//     while(isBig)
+//     {
+//         isSmall = valueList->head;
+//         while(isSmall)
+//         {
+//             if(sortDirection == ASC)
+//             {
+//                 if(isBig->data.value < isSmall->data.value)
+//                 {
+//                     int tmp = isBig->data.value;
+//                     isBig->data.value = isSmall->data.value;
+//                     isSmall->data.value = tmp;                
+//                 }  
+//             }
+//             else
+//             {
+//                 if(isBig->data.value > isSmall->data.value)
+//                 {
+//                     int tmp = isBig->data.value;
+//                     isBig->data.value = isSmall->data.value;
+//                     isSmall->data.value = tmp;                
+//                 }  
+//             }
+//             if(isSmall)
+//             {
+//                 isSmall = isSmall->next;
+//             }
+//         }
+//         if(isBig)
+//         {
+//             isBig = isBig->next; 
+//         }
+//     }
+// }
