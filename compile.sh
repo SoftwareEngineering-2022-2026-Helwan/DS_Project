@@ -2,6 +2,8 @@
 
 AppName="multiMap"
 
+mkdir obj 2> /dev/null
+
 gcc -c source_code/displayMenu.c -o  obj/displayMenu.o 
 gcc -c source_code/List.c   -o obj/List.o
 gcc -c source_code/menu.c -o  obj/menu.o  
