@@ -12,10 +12,10 @@
 #include "headers/displayMenu.h"
 #include "headers/menu.h"
 
-// |--------( source file )--------|
+// |--------( Main Method Utils )--------|
 #include "source_code/validation.c"
 #include "source_code/handler.c"
-//#include "source_code/debug.c"
+#include "source_code/debug.c"
 
 
 int main(int argc, String argv[])
@@ -26,7 +26,7 @@ int main(int argc, String argv[])
     // |----( Debug And Test method )----|
     if(argc == 3 && !strcmp(argv[1],"-d"))
     {
-        //debug( atoi(argv[2]), &keyList ); 
+        debug( atoi(argv[2]), &keyList ); 
         return 1;  
     }
 

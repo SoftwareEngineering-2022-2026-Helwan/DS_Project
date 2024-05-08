@@ -21,8 +21,8 @@ void AddHandler( List *keyList)
 
         if( keyPosition == -1) // if true ask to add new key
         {
-		valueValidation(&newPair, newPair.keyPair.values_list, 1);
-		addNewKey(newPair,keyList);
+            valueValidation(&newPair, newPair.keyPair.values_list, 1);
+            addNewKey(newPair,keyList);
         }
         else // handle new key values if want to add them
         {
@@ -31,6 +31,7 @@ void AddHandler( List *keyList)
             {
                 printf("\n[!] Key { %s } Exist, Do you Want Add its New Values ? (Y/N) :  ",newPair.keyPair.key);
                 scanf("\n%c",&add);
+                getchar();
                 add = (char) toupper(add);
 
                 if(add != 'Y' && add != 'N')
@@ -50,6 +51,7 @@ void AddHandler( List *keyList)
             printAnotherPairMenu();
             printf("\n\n[?] Add Another Pair ( Y/N ): ");
             scanf("\n%c",&continueChoice);
+            getchar();
             continueChoice = (char) toupper(continueChoice);
                 
             if(continueChoice != 'Y' && continueChoice != 'N')
@@ -122,7 +124,7 @@ void ModificationHandler( List *keyList)
             if(newValue.value != (-0))
             {
                 ReplaceList(selectedData.keyPair.values_list,selectedValue-1,newValue);
-		valueValidation(&selectedData ,selectedData.keyPair.values_list, 1);
+		        valueValidation(&selectedData ,selectedData.keyPair.values_list, 1);
             }
 
             printf("\n[!] Value Updated..!\n");
@@ -171,6 +173,7 @@ void DisplayHandler( List *keyList)
             {
                 printf("\n\n[?] Go Back ( Y/N ): ");
                 scanf("\n%c",&back);
+                getchar();
                 back = (char) toupper(back);
                 
                 if(back != 'Y' && back != 'N')
@@ -221,17 +224,17 @@ void RemoveHandler(List *keyList) {
         }
         else if (choice == ListSize(keyList)+1)
         {
-	    TraverseList(keyList,&displayPair);
+	        TraverseList(keyList,&displayPair);
             DestroyList(keyList);
             return;
         }
         else
         {
             removeKey(choice - 1, keyList);
-	    if(ListEmpty(keyList))
-	    {
-		    break;
-	    }
+            if(ListEmpty(keyList))
+            {
+                break;
+            }
         }
     }
 }

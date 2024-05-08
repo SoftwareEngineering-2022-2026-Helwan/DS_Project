@@ -1,6 +1,9 @@
 #ifndef GLOBAL_H_INCLUDED
 #define GLOBAL_H_INCLUDED 
 
+
+// |-----------------( Data Type Section )-----------------|
+
 typedef char* String;
 
 typedef struct list List;
@@ -19,6 +22,8 @@ typedef union
 	value_list_data value;
 }Data;
 
+
+// |-----------------( Sort Direction Section )-----------------|
 typedef enum 
 {
 	ASC = 1,

@@ -22,7 +22,15 @@ int validateChoice(int min, int max)
 
         printf("\n\n[?] Choose: ");
         scanf("\n%s",Soption);
-        option = atoi(Soption);
+        getchar();
+        if(isdigit(*Soption))
+        {
+            option = atoi(Soption);
+        }
+        else
+        {
+            option = -1;
+        }
         if(option  > max || option < min)
         {
             printf("\n\n[!] Invalid Option!  \n");
@@ -37,6 +45,7 @@ char wantContinue()
     {
         printf("[?] Choose: ");
         scanf("\n%c",&option);
+        getchar();
     }while(tolower(option) != 'n' && tolower(option) != 'y');
     return option;
 }

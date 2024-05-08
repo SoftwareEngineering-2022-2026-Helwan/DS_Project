@@ -10,30 +10,38 @@
 
 void getNewValue(ListEntry *newValue)
 {
-    String value = (String) malloc(255);
-    printf("\n[+] New Value: ");
-    scanf("%s",value);
-    int valid = 1;
-    
-    for (int i = 0; value[i] != '\0'; ++i) {
-        if (!isdigit(value[i])) {
-            valid = 0;
-            break;
-        }
-        
-    }
-    if(valid)
+    int valid = 0;
+
+    String value;
+    do
     {
-        newValue->value = atoi(value);
+        value = (String) malloc(255);
+        
+        printf("\n[+] New Value: ");
+        scanf("%s",value);
+        getchar();
+        valid = 1;
+        
+        
+            if (!isdigit(*value))
+            {
+                valid = 0;
+            }
+            
+        
+        if(valid)
+        {
+            newValue->value = atoi(value);
 
-        free(value);
+            free(value);
 
-    }
-    else
-    {   
-        newValue->value = -0;
-        printf("\n[!] Invalid Value Integer only!\n");
-    }
+        }
+        else
+        {   
+            printf("\n[!] Invalid Value Integer only!\n");
+            free(value);
+        }
+    }while(valid == 0);
 }
 
 void addNewValuesToExistingKey(List * KeyList, int position, ListEntry newPair)
@@ -62,6 +70,7 @@ void getKey(Data *keyData)
     
     printf("\n[?] Enter Key Name: ");
     scanf("\n%s",keyData->keyPair.key);
+    getchar();
 }
 
 void getValues(List *valueList)
@@ -82,6 +91,7 @@ void getValues(List *valueList)
         {
             printf("\n\n[?] Add Another Value ( Y/N ): ");
             scanf("\n%c",&anotherValue);
+            getchar();
             anotherValue = (char) toupper(anotherValue);
                         
             if(anotherValue != 'Y' && anotherValue != 'N')
