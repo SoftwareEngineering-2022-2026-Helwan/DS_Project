@@ -1,8 +1,9 @@
 #include <ctype.h>
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../headers/global.h"
+#include "../headers/displayMenu.h"
 
 void ResetCounter()
 {
@@ -15,15 +16,24 @@ void ResetCounter()
 
 int validateChoice(int min, int max)
 {
-    int option;
+    int option, valid;
     char *Soption = (char*) malloc(5);
     do
     {
-
+        valid = 1;
         printf("\n\n[?] Choose: ");
         scanf("\n%s",Soption);
         getchar();
-        if(isdigit(*Soption))
+        for (int i = 0; Soption[i] != '\0'; ++i) 
+        {
+            if (!isdigit(Soption[i])) 
+            {
+                valid = 0;
+                break;
+            }
+            
+        }
+        if(valid)
         {
             option = atoi(Soption);
         }
@@ -38,14 +48,32 @@ int validateChoice(int min, int max)
     }while(option < min || option > max);
     return option;
 }
-char wantContinue()
+char wantContinue(String question)
 {
-    char option;
+    char *Soption = (char*) malloc(3);
+    char option ;
     do
     {
+        option = ' ';
+        printf("%s",question);
         printf("[?] Choose: ");
-        scanf("\n%c",&option);
+        scanf("\n%s",Soption);
         getchar();
+        for (int i = 0; Soption[i] != '\0'; ++i) 
+        {
+            if (tolower(Soption[i]) != 'n' && tolower(Soption[i]) != 'y') 
+            {
+                option = 'a';
+                break;
+            }
+            
+        }
+
+        if(option != 'a')
+        {
+            option = Soption[0];
+        }
+
     }while(tolower(option) != 'n' && tolower(option) != 'y');
     return option;
 }

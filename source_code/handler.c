@@ -1,6 +1,12 @@
+#include <ctype.h>
+#include <stdio.h>
 #include "../headers/List.h"
 #include "../headers/sort.h"
 #include "../headers/displayMenu.h"
+#include "../headers/menu.h"
+#include "../headers/pairUtils.h"
+#include "../headers/operations.h"
+#include "../headers/validation.h"
 
 
 
@@ -29,11 +35,9 @@ void AddHandler( List *keyList)
             char add;
             do
             {
-                printf("\n[!] Key { %s } Exist, Do you Want Add its New Values ? (Y/N) :  ",newPair.keyPair.key);
-                scanf("\n%c",&add);
-                getchar();
-                add = (char) toupper(add);
-
+                printf("\n[!] Key { %s } Exist !\n",newPair.keyPair.key);
+                
+                add = (char) toupper(wantContinue("[?] Do you Want Add its New Values ? (Y/N) :  \n")) ;
                 if(add != 'Y' && add != 'N')
                 {
                     printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");
@@ -49,11 +53,9 @@ void AddHandler( List *keyList)
         do
         {
             printAnotherPairMenu();
-            printf("\n\n[?] Add Another Pair ( Y/N ): ");
-            scanf("\n%c",&continueChoice);
-            getchar();
-            continueChoice = (char) toupper(continueChoice);
-                
+    
+            continueChoice = (char) toupper(wantContinue("\n\n[?] Add Another Pair ( Y/N ):\n"));
+
             if(continueChoice != 'Y' && continueChoice != 'N')
             {
                 printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");
@@ -83,7 +85,7 @@ void ModificationHandler( List *keyList)
         printKeyModificationMenu();
         printKeyListMenu();
         printf("\n[*] Select Key To Modifiy: \n");
-        printf("\n0) Back");
+        printf("0) Back");
         TraverseList(keyList,&displayKey);
         ResetCounter();
 
@@ -107,7 +109,7 @@ void ModificationHandler( List *keyList)
             }
             printValueListMenu();
             printf("\n[*] Select Value To Modifiy: \n");
-            printf("\n0) Back");
+            printf("0) Back");
             TraverseList(selectedData.keyPair.values_list,&displayValueToSelect); 
             ResetCounter();
 
@@ -155,7 +157,7 @@ void DisplayHandler( List *keyList)
     {
         printDisplayMenu();
         printf("\n[*] Select Key To Display: \n");
-        printf("\n0) Back");
+        printf("0) Back");
         TraverseList(keyList,&displayKey);
         ResetCounter();
         
@@ -171,10 +173,8 @@ void DisplayHandler( List *keyList)
 
             do
             {
-                printf("\n\n[?] Go Back ( Y/N ): ");
-                scanf("\n%c",&back);
-                getchar();
-                back = (char) toupper(back);
+                
+                back = (char) toupper(wantContinue("\n\n[?] Go Back ( Y/N ): \n"));
                 
                 if(back != 'Y' && back != 'N')
                 {
@@ -212,7 +212,7 @@ void RemoveHandler(List *keyList) {
     {
         printRemoveMenu();
         printKeyListMenu();
-        printf("\n\n0) Back");
+        printf("\n0) Back");
         TraverseList(keyList,&displayKey);
         printf("\n%d) All List\n",ListSize(keyList)+1);
         ResetCounter();
@@ -238,8 +238,4 @@ void RemoveHandler(List *keyList) {
         }
     }
 }
-
-
-
-
 

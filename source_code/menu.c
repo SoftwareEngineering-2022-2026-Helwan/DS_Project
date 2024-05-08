@@ -15,7 +15,7 @@ void printRemoveMenu()
 }
 void printKeyModificationMenu( )
 {
-    printf("\n|----------( Modifiy Pairs )----------|\n");
+    printf("\n|----------( Modifiy Pairs Values )----------|\n");
 }
 
 void printDisplayMenu()

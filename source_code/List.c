@@ -1,5 +1,5 @@
-#include "../headers/List.h"
 #include <stdlib.h>
+#include "../headers/List.h"
 
 
 void CreateList(List *pl)
@@ -113,7 +113,6 @@ void TraverseList(List *pl,void(*pf)(ListEntry))
     }
 
 }
-
 
 void SortList(List *list, int (*compareTo)(ListEntry,ListEntry))
 {

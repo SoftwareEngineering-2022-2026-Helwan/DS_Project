@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "../headers/List.h"
+#include <stdio.h>
 
 
 void displayKey(ListEntry listItem)

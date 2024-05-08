@@ -7,6 +7,7 @@
 #include "../headers/operations.h"
 #include "../headers/sort.h"
 #include "../headers/displayMenu.h"
+#include "../headers/validation.h"
 
 void getNewValue(ListEntry *newValue)
 {
@@ -22,11 +23,15 @@ void getNewValue(ListEntry *newValue)
         getchar();
         valid = 1;
         
-        
-            if (!isdigit(*value))
+        for (int i = 0; value[i] != '\0'; ++i) 
+        {
+            if (!isdigit(value[i])) 
             {
                 valid = 0;
+                break;
             }
+            
+        }
             
         
         if(valid)
@@ -38,7 +43,7 @@ void getNewValue(ListEntry *newValue)
         }
         else
         {   
-            printf("\n[!] Invalid Value Integer only!\n");
+            printf("\n[!] Invalid Value Positive Integer only!\n");
             free(value);
         }
     }while(valid == 0);
@@ -89,11 +94,7 @@ void getValues(List *valueList)
         
         do
         {
-            printf("\n\n[?] Add Another Value ( Y/N ): ");
-            scanf("\n%c",&anotherValue);
-            getchar();
-            anotherValue = (char) toupper(anotherValue);
-                        
+            anotherValue = (char) toupper(wantContinue("\n\n[?] Add Another Value ( Y/N ):\n"));
             if(anotherValue != 'Y' && anotherValue != 'N')
             {
                 printf("\n\n[!]Invalid character\n[!] Valid characters Are (Y , y) and (N , n) Only!! \n");

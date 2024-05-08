@@ -1,5 +1,5 @@
-#include "../headers/List.h"
 #include<string.h>
+#include "../headers/List.h"
 
 int compareString(ListEntry pair1, ListEntry pair2)
 {
@@ -61,6 +61,8 @@ void sortInt(List *valueList)
 {
     SortList(valueList, &compareInt);
 }
+
+//|-----------------( user level sort)-----------------|
 
 // void sortString(List *keyList)
 // {

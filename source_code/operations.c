@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "../headers/List.h"
 #include "../headers/sort.h"
-#include <string.h>
 #include "../headers/displayMenu.h"
 
 
@@ -56,7 +56,6 @@ void removeKey( int position, List *keyList)
     DestroyList(deletedPair.keyPair.values_list);
 
 }
-
 
 int valueExist( ListEntry newPair, List *valueList, int sameList)
 {

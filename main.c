@@ -6,15 +6,15 @@
 
 #include "headers/global.h"
 #include "headers/List.h"
-#include "headers/sort.h"
 #include "headers/pairUtils.h"
 #include "headers/operations.h"
 #include "headers/displayMenu.h"
+#include "headers/handler.h"
 #include "headers/menu.h"
+#include "headers/validation.h"
 
-// |--------( Main Method Utils )--------|
-#include "source_code/validation.c"
-#include "source_code/handler.c"
+// |--------( test method )--------|
+
 #include "source_code/debug.c"
 
 

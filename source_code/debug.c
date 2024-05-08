@@ -11,6 +11,9 @@
 #include "../headers/operations.h"
 #include "../headers/displayMenu.h"
 #include "../headers/menu.h"
+#include "../headers/validation.h"
+#include "../headers/handler.h"
+
 
 
 void task2Test(List*,int);
